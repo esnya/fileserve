@@ -47,7 +47,7 @@ T[] getArray(T = void)(Socket socket) {
 
     T[] data;
     ulong received = 0;
-    auto buf = new T[length];
+    auto buf = new T[cast(size_t)length];
     do {
         auto ret_ = socket.receive(buf[0 .. cast(size_t)(length - received)]);
         if (ret_ <= 0) return null;
